@@ -29,9 +29,10 @@ test.describe('Sandbox Sidekick Ad Page', () => {
     await expect(page).toHaveURL(sidekickDemoAdLink);
 
     // Selecting Ad & click on it
+    await page.locator('.kargo-ad-hover').scrollIntoViewIfNeeded();
     const adFrame = await page.frameLocator('.kargo-creative'); // Defining the ad frame
-    await expect(adFrame.locator('img[src*="DV_GlobalPassback_Update_320x50.jpg"]')).toBeVisible(); // Check that ad is visible
-    await adFrame.locator('a[href="https://www.pathtosuccess.global"]').click(); // Click on ad
+    await expect(page.locator('.kargo-ad-content')).toBeVisible(); // Check that ad is visible
+    await page.locator('.kargo-ad-content').click(); // Click on ad
 
     // chech the new page open link of ad
     const newPage = await pagePromise;
@@ -66,8 +67,9 @@ test.describe('Sandbox Sidekick Ad Page', () => {
     await expect(page).toHaveURL(sidekickDemoAdLink);
 
     // Selecting Ad & click on it
+    await page.locator('.kargo-ad-hover').scrollIntoViewIfNeeded();
     const adFrame = await page.frameLocator('.kargo-creative'); // Defining the ad frame
-    await expect(adFrame.locator('img[src*="DV_GlobalPassback_Update_320x50.jpg"]')).toBeVisible(); // Check that ad is visible
+    await expect(page.locator('.kargo-ad-content')).toBeVisible(); // Check that ad is visible
 
     // wait for trackers
     const waitTrackersArray = await Promise.all([
@@ -97,7 +99,7 @@ test.describe('Sandbox Sidekick Ad Page', () => {
       console.log('Response URL: ', waitTrackersArray[i]._initializer.url);
     }
 
-    await adFrame.locator('a[href="https://www.pathtosuccess.global"]').click(); // Click on ad
+    await page.locator('.kargo-ad-content').click(); // Click on ad
     // chech the new open kargo page
     const newPage = await pagePromise;
     // await newPage.waitForLoadState();
