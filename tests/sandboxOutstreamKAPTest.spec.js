@@ -15,7 +15,7 @@ test.describe('Sandbox Outstream Video KAP Ad Page', () => {
     await expect(page.locator('a.kargo-branding-created .by-kargo-svg-grey')).toBeVisible(); // check that kargo bolt logo is visible
     await page.locator('a.kargo-branding-created').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(kargoLink);
@@ -37,7 +37,7 @@ test.describe('Sandbox Outstream Video KAP Ad Page', () => {
     await expect(adFrame.frameLocator('iframe').last().locator('.kargo-frame')).toBeVisible(); // Check that ad is visible
     await adFrame.frameLocator('iframe').last().locator('.kargo-frame').click(); // Click on ad
 
-    // chech the new page open link of ad
+    // Check the new opened page link of ad
     const newPage = await pagePromise;
     // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(outstreamKAPAdLink); // URL contains
@@ -54,7 +54,7 @@ test.describe('Sandbox Outstream Video KAP Ad Page', () => {
 
   test('Check Ad Trackers', async ({ context }) => {
     const page = await context.newPage();
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 
@@ -128,7 +128,7 @@ test.describe('Sandbox Outstream Video KAP Ad Page', () => {
     await expect(muteRequest.status()).toEqual(200);
     console.log('Mute Response URL: ',muteRequest._initializer.url);
 
-    await adFrame.frameLocator('iframe[style*="position: relative;"]').last().locator('.kargo-frame .kargo-canvas div:nth-child(3)').first().click(); // Click on mute
+    await adFrame.frameLocator('iframe[style*="position: relative;"]').last().locator('.kargo-frame .kargo-canvas div:nth-child(3)').first().click(); // Click on Unmute
     const unmuteRequest = await unmuteRequestPromise;
     await expect(unmuteRequest).toBeTruthy();
     // check tracker url includes uuid & response status is 200

@@ -14,7 +14,7 @@ test.describe('Sandbox Anchor Ad Page', () => {
     await expect(page.locator('a.kargo-hover-link.filled .by-kargo-svg-white')).toBeVisible(); // check that kargo bolt logo is visible
     await page.locator('a.kargo-hover-link.filled').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(kargoLink, {timeout: 10000});
@@ -33,9 +33,8 @@ test.describe('Sandbox Anchor Ad Page', () => {
     await expect(adFrame.locator('.celtra-screen-holder')).toBeVisible(); // Check that ad is visible
     await adFrame.locator('.celtra-screen-holder').click(); // Click on ad
 
-    // chech the new page open link of ad
+    // Check the new opened page link of ad
     const newPage = await pagePromise;
-    // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(anchorAdLink, {timeout: 10000}); // URL contains
   });
 
@@ -44,7 +43,7 @@ test.describe('Sandbox Anchor Ad Page', () => {
     // Start waiting for new page before clicking
     const pagePromise = context.waitForEvent('page');
 
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 
@@ -59,7 +58,6 @@ test.describe('Sandbox Anchor Ad Page', () => {
     const krakenBillableRequestPromise = page.waitForRequest(request => request.url().match('event/billable'));
     const clickRequestPromise = page.waitForResponse(request => request.url().match('imp_track-click'));
     const closeRequestPromise = page.waitForResponse(request => request.url().match('imp_track-close'));
-    // const moatRequestPromise = page.waitForResponse(request => request.status() === 400);
 
     // Go to the starting url
     await page.goto(anchorDemoAdLink);
@@ -92,16 +90,15 @@ test.describe('Sandbox Anchor Ad Page', () => {
       console.log('Tracker URL: ', waitTrackersArray[i]._initializer.url);
     }
 
-    // Verify that tthe first 7 trackers response status is 200
+    // Verify that the first 7 trackers response status is 200
     for (let i = 0; i < 7; i++) {
       await expect(waitTrackersArray[i].status()).toEqual(200);
       console.log('Response URL: ', waitTrackersArray[i]._initializer.url);
     }
 
     await adFrame.locator('.celtra-screen-holder').click(); // Click on ad
-    // chech the new open kargo page
+    // Check the new opened page
     const newPage = await pagePromise;
-    // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(anchorAdLink, {timeout: 10000}); // URL contains
 
     const clickRequest = await clickRequestPromise;

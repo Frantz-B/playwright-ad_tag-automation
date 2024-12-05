@@ -15,7 +15,7 @@ test.describe('Sandbox Venti Ad Page', () => {
     await expect(page.locator('a.kargo-branding-created .by-kargo-svg-grey')).toBeVisible(); // check that kargo bolt logo is visible
     await page.locator('a.kargo-branding-created').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(kargoLink, {timeout: 10000});
@@ -35,7 +35,7 @@ test.describe('Sandbox Venti Ad Page', () => {
     await expect(adFrame.locator('.celtra-screen-holder').last()).toBeVisible(); // Check that ad is visible
     await page.locator('.celtra-ad-inline-host').click(); // Click on ad
 
-    // chech the new page open link of ad
+    // Check the new opened page link of ad
     const newPage = await pagePromise;
     // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(ventiAdLink, {timeout: 10000}); // URL contains
@@ -46,7 +46,7 @@ test.describe('Sandbox Venti Ad Page', () => {
     // Start waiting for new page before clicking
     const pagePromise = context.waitForEvent('page');
 
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 
@@ -92,7 +92,7 @@ test.describe('Sandbox Venti Ad Page', () => {
       console.log('Tracker URL: ', waitTrackersArray[i]._initializer.url);
     }
 
-    // Verify that tthe first 7 trackers response status is 200
+    // Verify that the first 7 trackers response status is 200
     for (let i = 0; i < 7; i++) {
       await expect(waitTrackersArray[i].status()).toEqual(200);
       console.log('Response URL: ', waitTrackersArray[i]._initializer.url);
@@ -104,7 +104,7 @@ test.describe('Sandbox Venti Ad Page', () => {
     
     const clickRequestPromise = page.waitForResponse(request => request.url().match('imp_track-click'));
     await page.locator('.celtra-ad-inline-host').click(); // Click on ad
-    // chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(ventiAdLink, {timeout: 10000}); // URL contains

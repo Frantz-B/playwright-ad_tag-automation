@@ -15,7 +15,7 @@ test.describe('Sandbox Key Art Ad Page', () => {
     await expect(page.locator('a.kargo-branding-kargo .kargo-svg-bolt')).toBeVisible(); // check that kargo bolt logo is visible
     await page.locator('a.kargo-branding-kargo').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
   });
@@ -23,7 +23,7 @@ test.describe('Sandbox Key Art Ad Page', () => {
   test('Check Ad Trackers', async ({ context }) => {
     const page = await context.newPage();
 
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 
@@ -43,7 +43,7 @@ test.describe('Sandbox Key Art Ad Page', () => {
     await page.locator('#kargo-ad-middle').scrollIntoViewIfNeeded();
     const adFrame = await page.frameLocator('iframe.kargo-creative'); // Defining the ad frame
     await expect(adFrame.frameLocator('iframe').locator('[id="KBRContainer"]')).toBeVisible(); // Check that survey is visible
-    await expect(adFrame.frameLocator('iframe').locator('[id="kbrHeader"] p')).toHaveText('Daily Poll Brought to You By The'); // Check that survey is visible
+    await expect(adFrame.frameLocator('iframe').locator('[id="kbrHeader"] p')).toHaveText('Daily Poll Brought to You By The'); // Check that survey header is visible
 
     // wait for trackers
     const waitTrackersArray = await Promise.all([
@@ -66,7 +66,7 @@ test.describe('Sandbox Key Art Ad Page', () => {
       }
     }
 
-    // Verify that tthe first 5 trackers response status is 200
+    // Verify that the first 5 trackers response status is 200
     for (let i = 0; i < 5; i++) {
       await expect(waitTrackersArray[i].status()).toEqual(200);
       console.log('Response URL: ', waitTrackersArray[i]._initializer.url);

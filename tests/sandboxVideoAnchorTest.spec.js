@@ -16,7 +16,7 @@ test.describe('Sandbox Video Anchor Ad Page', () => {
     await expect(adFrame.locator('.kargo-svg-bolt')).toBeVisible(); // check that kargo bolt logo is visible
     await adFrame.locator('.kargo-svg-bolt').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(kargoLink);
@@ -38,7 +38,7 @@ test.describe('Sandbox Video Anchor Ad Page', () => {
     await adFrame.frameLocator('iframe').last().locator('.kargo-frame').click(); // Click on ad
     await adFrame.frameLocator('iframe').last().locator('.kargo-frame').click(); // Click on ad
 
-    // chech the new page open link of ad
+    // Check the new opened page link of ad
     const newPage = await pagePromise;
     // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(videoAnchorAdLink); // URL contains
@@ -54,7 +54,7 @@ test.describe('Sandbox Video Anchor Ad Page', () => {
 
   test('Check Ad Trackers', async ({ context }) => {
     const page = await context.newPage();
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 

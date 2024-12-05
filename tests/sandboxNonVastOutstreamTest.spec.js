@@ -15,7 +15,7 @@ test.describe('Sandbox NonVast Outstream Video Ad Page', () => {
     await expect(page.locator('a.kargo-branding-kargo .kargo-svg-bolt')).toBeVisible(); // check that kargo bolt logo is visible
     await page.locator('a.kargo-branding-kargo').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(kargoLink);
@@ -37,7 +37,7 @@ test.describe('Sandbox NonVast Outstream Video Ad Page', () => {
     await expect(adFrame.frameLocator('iframe').last().locator('.kargo-frame')).toBeVisible(); // Check that ad is visible
     await adFrame.frameLocator('iframe').last().locator('.kargo-frame').click(); // Click on ad
 
-    // chech the new page open link of ad
+    // Check the new opened page link of ad
     const newPage = await pagePromise;
     // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(nonOutstreamAdLink); // URL contains
@@ -53,7 +53,7 @@ test.describe('Sandbox NonVast Outstream Video Ad Page', () => {
 
   test('Check Ad Trackers', async ({ context }) => {
     const page = await context.newPage();
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 
@@ -126,7 +126,7 @@ test.describe('Sandbox NonVast Outstream Video Ad Page', () => {
     // check tracker url includes uuid & response status is 200
     await expect(replayRequest._initializer.url).toContain('uuid');
     await expect(replayRequest.status()).toEqual(200);
-    console.log('Mute Response URL: ',replayRequest._initializer.url);
+    console.log('Replay Response URL: ',replayRequest._initializer.url);
 
     await adFrame.frameLocator('iframe[style*="position: relative;"]').last().locator('.kargo-frame .kargo-canvas div:nth-child(2)').first().click(); // Click on mute
     const muteRequest = await muteRequestPromise;

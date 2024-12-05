@@ -14,7 +14,7 @@ test.describe('Sandbox ABA Adhesion Display Ad Page', () => {
     await expect(page.locator('a.kargo-hover-link.filled')).toBeVisible(); // check that kargo bolt logo is visible
     await page.locator('a.kargo-hover-link.filled').click();
 
-    // Chech the new open kargo page
+    // Check the new opened kargo page
     const newPage = await pagePromise;
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(kargoLink, {timeout: 10000});
@@ -33,9 +33,8 @@ test.describe('Sandbox ABA Adhesion Display Ad Page', () => {
     await expect(page.locator('.kargo-ad-content')).toBeVisible(); // Check that ad is visible
     await page.locator('.kargo-ad-content').click(); // Click on ad
 
-    // chech the new page open link of ad
+    // Check the new opened page link of ad
     const newPage = await pagePromise;
-    // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(abaAdhesionDisplayAdLink, {timeout: 10000}); // URL contains
   });
 
@@ -44,7 +43,7 @@ test.describe('Sandbox ABA Adhesion Display Ad Page', () => {
     // Start waiting for new page before clicking
     const pagePromise = context.waitForEvent('page');
 
-    // Log 'request' and 'response' events. // un-commnet if you want it check them in console
+    // Log 'request' and 'response' events. // un-commnet if you want to check them in console
     // page.on('request', request => console.log('>>', request.method(), request.url()));
     // page.on('response', response => console.log('<<', response.status(), response.url()));
 
@@ -85,16 +84,15 @@ test.describe('Sandbox ABA Adhesion Display Ad Page', () => {
       console.log('Tracker URL: ', waitTrackersArray[i]._initializer.url);
     }
 
-    // Verify that tthe first 5 trackers response status is 200
+    // Verify that the first 5 trackers response status is 200
     for (let i = 0; i < 5; i++) {
       await expect(waitTrackersArray[i].status()).toEqual(200);
       console.log('Response URL: ', waitTrackersArray[i]._initializer.url);
     }
 
     await page.locator('.kargo-ad-content').click(); // Click on ad
-    // chech the new open kargo page
+    // Check the new opened page
     const newPage = await pagePromise;
-    // await newPage.waitForLoadState();
     await expect(newPage).toHaveURL(abaAdhesionDisplayAdLink, {timeout: 10000}); // URL contains
 
     const clickRequest = await clickRequestPromise;
