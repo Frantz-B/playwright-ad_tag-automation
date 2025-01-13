@@ -43,6 +43,8 @@ export const outstreamKAPAdLink = 'https://www.kargo.com/';
 export const outstreamKAPDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?&id=outstream-video-kap-v7&krg_debug=4';
 export const outstreamVPAIDAdLink = 'https://www.kargo.com/';
 export const outstreamVPAIDDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=outstream-video-v7';
+export const runwayAdLink = /www.westpac.com.au/;
+export const runwayDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=runway-v7';
 export const sidekickAdLink = /www.amazon.com/;
 export const sidekickDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=sidekick-v7';
 export const socialCanvasAdLink = 'https://track.celtra.com/';
