@@ -51,6 +51,8 @@ export const socialCanvasAdLink = 'https://track.celtra.com/';
 export const socialCanvasDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com//ad-tag-test/render.php?krg_debug=4&id=social-canvas-v7';
 export const swipeUpAdLink = 'https://www.kargo.com/';
 export const swipeUpDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?&id=swipeup-v7&krg_debug=4';
+export const topBannerAdLink = /abc.com/;
+export const topBannerDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=top-banner-v7';
 export const ventiAdLink = /www.flaminhotfilm.com/;
 export const ventiDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=kargo-created';
 export const videoAnchorAdLink = 'https://www.kargo.com/';
