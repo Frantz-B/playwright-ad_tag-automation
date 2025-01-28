@@ -1,5 +1,5 @@
 export const kargoLink = 'https://www.kargo.com/privacy';
-export const abaAdhesionDisplayAdLink = 'https://www.kargo.com/';
+export const abaAdhesionDisplayAdLink = 'https://www.adidas.com/us/women-training';
 export const abaAdhesionDisplayDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com//ad-tag-test/render.php?krg_debug=4&id=aba-adhesion-display-v7';
 export const abaDisplayAdLink = 'https://www.kargo.com/';
 export const abaDisplayDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com//ad-tag-test/render.php?krg_debug=4&id=aba-display-v7';
