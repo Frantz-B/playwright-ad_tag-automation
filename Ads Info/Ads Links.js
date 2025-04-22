@@ -35,7 +35,7 @@ export const leaderboardAdLink = 'https://track.celtra.com/';
 export const leaderboardDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=leaderboard-v7';
 export const lighthouseAdLink = 'https://www.airforce.com/pay-and-benefits/bonuses?utm_campaign=%ebuy!&utm_source=%epid';
 export const lighthouseDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=Lighthouse_digitalTrends_74_585267191';
-export const middleBannerAdLink = 'https://www.georgeforemancooking.com/?https://www.georgeforemancooking.com';
+export const middleBannerAdLink = 'https://track.celtra.com/';
 export const middleBannerDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=middle-banner-v7';
 export const nonOutstreamAdLink = /www.symetra.com/;
 export const nonOutstreamDemoAdLink = 'https://ad-tag-sandbox.staging.kargo.com/ad-tag-test/render.php?krg_debug=4&id=nonvastoutstreamvideo-v7';
